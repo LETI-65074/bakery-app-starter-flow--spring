@@ -25,7 +25,7 @@ public abstract class AbstractIT<E extends TestBenchElement> extends ParallelTes
 	@Override
 	public void setup() throws Exception {
 		super.setup();
-		testBench().resizeViewPortTo(1024, 800);
+                driver.manage().window().setSize(new Dimension(1024, 800));
 		if (getRunLocallyBrowser() == null) {
 			APP_URL = "http://" + IPAddress.findSiteLocalAddress() + ":8080/";
 		}
