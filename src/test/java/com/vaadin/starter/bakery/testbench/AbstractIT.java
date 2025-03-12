@@ -1,6 +1,7 @@
 package com.vaadin.starter.bakery.testbench;
 
 import org.junit.Rule;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
 import com.vaadin.starter.bakery.testbench.elements.ui.LoginViewElement;
