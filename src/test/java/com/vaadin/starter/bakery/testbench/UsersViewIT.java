@@ -77,7 +77,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		usersView.openRowForEditing(rowNum);
 
 		password = usersView.getPasswordField(); // Requery password field.
-		Assert.assertEquals("", password.getAttribute("value"));
+		Assert.assertEquals("", password.getDomAttribute("value"));
 	}
 
 	private void createUser(UsersViewElement usersView, String email, String firstName, String lastName,
