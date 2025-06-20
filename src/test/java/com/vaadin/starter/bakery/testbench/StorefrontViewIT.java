@@ -4,9 +4,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.notification.testbench.NotificationElement;
@@ -25,14 +25,14 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 	}
 
 	@Test
-	@Ignore
+	@Disabled
 	public void editOrder() {
 		StorefrontViewElement storefrontPage = openView();
 
 		int orderIndex = 1;
 
 		OrderCardElement order = storefrontPage.getOrderCard(orderIndex);
-		Assert.assertNotNull(order);
+		Assertions.assertNotNull(order);
 		int initialCount = Integer.parseInt(order.getGoodsCount(0));
 
 		order.click();
@@ -47,12 +47,12 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 		storefrontPage.getOrderDetails().getSaveButton().click();
 
 		NotificationElement notification = $(NotificationElement.class).last();
-		Assert.assertTrue(notification.getText().contains("was updated"));
+		Assertions.assertTrue(notification.getText().contains("was updated"));
 
 		order = storefrontPage.getOrderCard(orderIndex);
-		Assert.assertNotNull(order);
+		Assertions.assertNotNull(order);
 		int currentCount = Integer.parseInt(order.getGoodsCount(0));
-		Assert.assertEquals(initialCount + 1, currentCount);
+		Assertions.assertEquals(initialCount + 1, currentCount);
 
 	}
 
@@ -69,24 +69,24 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 
 	private void openAllDialogs(StorefrontViewElement storefrontPage) {
 		storefrontPage.getSearchBar().getCreateNewButton().click();
-		Assert.assertTrue(storefrontPage.getDialog().get().isOpen());
+		Assertions.assertTrue(storefrontPage.getDialog().get().isOpen());
 		storefrontPage.getOrderEditor().cancel();
-		Assert.assertFalse(storefrontPage.getDialog().get().isOpen());
+		Assertions.assertFalse(storefrontPage.getDialog().get().isOpen());
 
 		storefrontPage.getSearchBar().getCreateNewButton().click();
-		Assert.assertTrue(storefrontPage.getDialog().get().isOpen());
+		Assertions.assertTrue(storefrontPage.getDialog().get().isOpen());
 
 		storefrontPage.getOrderEditor().cancel();
-		Assert.assertFalse(storefrontPage.getDialog().get().isOpen());
+		Assertions.assertFalse(storefrontPage.getDialog().get().isOpen());
 
 		OrderCardElement order = storefrontPage.getOrderCard(0);
-		Assert.assertNotNull(order);
+		Assertions.assertNotNull(order);
 		order.click();
 
-		Assert.assertTrue(storefrontPage.getOrderDetails().isDisplayed());
+		Assertions.assertTrue(storefrontPage.getOrderDetails().isDisplayed());
 
 		storefrontPage.getOrderDetails().getCancelButton().click();
-		Assert.assertFalse(storefrontPage.getDialog().get().isOpen());
+		Assertions.assertFalse(storefrontPage.getDialog().get().isOpen());
 	}
 
 	@Test
@@ -96,7 +96,7 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 		int orderIndex = new Random().nextInt(10);
 
 		OrderCardElement order = storefrontPage.getOrderCard(orderIndex);
-		Assert.assertNotNull(order);
+		Assertions.assertNotNull(order);
 		order.click();
 
 		ButtonElement editBtn = storefrontPage.getOrderDetails().getEditButton();
@@ -115,12 +115,12 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 	private void testFieldOverflow(TextFieldElement textFieldElement) {
 		textFieldElement.setValue(IntStream.range(0, 256).mapToObj(i -> "A").collect(Collectors.joining()));
 		String msg = getErrorMessage(textFieldElement);
-		Assert.assertTrue(msg.matches("(maximum length is 255 characters|size must be between 0 and 255)"));
+		Assertions.assertTrue(msg.matches("(maximum length is 255 characters|size must be between 0 and 255)"));
 	}
 
 	private void testClearRequiredField(TextFieldElement textFieldElement) {
 		textFieldElement.setValue("");
-		Assert.assertEquals("must not be blank", getErrorMessage(textFieldElement));
+		Assertions.assertEquals("must not be blank", getErrorMessage(textFieldElement));
 	}
 
 	private String getErrorMessage(TextFieldElement textFieldElement) {
