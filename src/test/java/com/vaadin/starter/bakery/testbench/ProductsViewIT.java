@@ -52,7 +52,7 @@ public class ProductsViewIT extends AbstractIT<ProductsViewElement> {
 		Assertions.assertEquals(rowNum, grid.getCell(newValue).getRow());
 	}
 
-	@Test
+	@BrowserTest
 	public void editProduct() {
 		ProductsViewElement productsPage = openView();
 
