@@ -1,7 +1,6 @@
 package com.vaadin.starter.bakery.testbench;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
@@ -9,12 +8,9 @@ import com.vaadin.starter.bakery.testbench.elements.ui.LoginViewElement;
 import com.vaadin.starter.bakery.ui.utils.BakeryConst;
 import com.vaadin.testbench.BrowserTestBase;
 import com.vaadin.testbench.IPAddress;
-import com.vaadin.testbench.ScreenshotOnFailureExtension;
 import com.vaadin.testbench.TestBenchDriverProxy;
 import com.vaadin.testbench.TestBenchElement;
 
-
-@ExtendWith(ScreenshotOnFailureExtension.class)
 public abstract class AbstractIT<E extends TestBenchElement> extends BrowserTestBase {
 	public String APP_URL = "http://localhost:8080/";
 
@@ -24,7 +20,7 @@ public abstract class AbstractIT<E extends TestBenchElement> extends BrowserTest
 	}
 
 	@BeforeEach
-	public void setup() throws Exception {
+	void setup() throws Exception {
                 getDriver().manage().window().setSize(new Dimension(1024, 800));
 		if (getRunLocallyBrowser() == null) {
 			APP_URL = "http://" + IPAddress.findSiteLocalAddress() + ":8080/";

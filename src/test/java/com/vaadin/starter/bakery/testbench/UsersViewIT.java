@@ -10,6 +10,7 @@ import com.vaadin.flow.component.textfield.testbench.EmailFieldElement;
 import com.vaadin.flow.component.textfield.testbench.PasswordFieldElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.StorefrontViewElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.UsersViewElement;
+import com.vaadin.testbench.BrowserTest;
 import com.vaadin.testbench.TestBenchElement;
 
 public class UsersViewIT extends AbstractIT<UsersViewElement> {
@@ -22,7 +23,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		return storefront.getMenu().navigateToUsers();
 	}
 
-	@Test
+	@BrowserTest
 	public void updatePassword() {
 		UsersViewElement usersView = openView();
 
@@ -96,7 +97,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		Assertions.assertFalse(usersView.getCrud().isEditorOpen());
 	}
 
-	@Test
+	@BrowserTest
 	public void tryToUpdateLockedEntity() {
 		UsersViewElement page = openView();
 
@@ -111,7 +112,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		Assertions.assertEquals(rowNum, page.getCrud().getGrid().getCell("barista@vaadin.com").getRow());
 	}
 
-	@Test
+	@BrowserTest
 	public void tryToDeleteLockedEntity() {
 		UsersViewElement page = openView();
 
@@ -126,7 +127,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		Assertions.assertEquals(rowNum, page.getCrud().getGrid().getCell("barista@vaadin.com").getRow());
 	}
 
-	@Test
+	@BrowserTest
 	public void testCancelConfirmationMessage() {
 		UsersViewElement page = openView();
 		page.getSearchBar().getCreateNewButton().click();
@@ -136,7 +137,7 @@ public class UsersViewIT extends AbstractIT<UsersViewElement> {
 		Assertions.assertEquals(page.getDiscardConfirmDialog().getHeaderText(), "Discard changes");
 	}
 
-	@Test
+	@BrowserTest
 	public void accessDenied() {
 		StorefrontViewElement storefront = openLoginView().login("barista@vaadin.com", "barista");
 		Assertions.assertEquals(3, storefront.getMenu().$(TabElement.class).all().size());

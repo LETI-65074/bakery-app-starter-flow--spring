@@ -11,6 +11,7 @@ import com.vaadin.flow.component.grid.testbench.GridTHTDElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.ProductsViewElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.StorefrontViewElement;
+import com.vaadin.testbench.BrowserTest;
 
 public class ProductsViewIT extends AbstractIT<ProductsViewElement> {
 
@@ -22,7 +23,7 @@ public class ProductsViewIT extends AbstractIT<ProductsViewElement> {
 		return storefront.getMenu().navigateToProducts();
 	}
 
-	@Test
+	@BrowserTest
 	public void editProductTwice() {
 		ProductsViewElement productsPage = openView();
 
@@ -89,7 +90,7 @@ public class ProductsViewIT extends AbstractIT<ProductsViewElement> {
 		Assertions.assertFalse(productsPage.getCrud().isEditorOpen());
 	}
 
-	@Test
+	@BrowserTest
 	public void testCancelConfirmationMessage() {
 		ProductsViewElement productsPage = openView();
 

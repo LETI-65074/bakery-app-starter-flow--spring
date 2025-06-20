@@ -6,7 +6,6 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.notification.testbench.NotificationElement;
@@ -16,6 +15,7 @@ import com.vaadin.starter.bakery.testbench.elements.ui.OrderItemEditorElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.StorefrontViewElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.StorefrontViewElement.OrderEditorElement;
 import com.vaadin.starter.bakery.testbench.elements.ui.UsersViewElement;
+import com.vaadin.testbench.BrowserTest;
 
 public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 
@@ -24,7 +24,7 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 		return openLoginView().login("admin@vaadin.com", "admin");
 	}
 
-	@Test
+	@BrowserTest
 	@Disabled
 	public void editOrder() {
 		StorefrontViewElement storefrontPage = openView();
@@ -56,7 +56,7 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 
 	}
 
-	@Test
+	@BrowserTest
 	public void testDialogs() {
 		StorefrontViewElement storefrontPage = openView();
 		openAllDialogs(storefrontPage);
@@ -89,7 +89,7 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 		Assertions.assertFalse(storefrontPage.getDialog().get().isOpen());
 	}
 
-	@Test
+	@BrowserTest
 	public void testTextFieldValidation() {
 		StorefrontViewElement storefrontPage = openView();
 
