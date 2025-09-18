@@ -34,6 +34,23 @@ public class OrderService implements CrudService<Order> {
 
 	private final OrderRepository orderRepository;
 
+    /**
+     * Determines a pseudo-random {@link OrderState} for an order based on its due date.
+     * <p>
+     * The returned state is influenced by how the provided due date compares to the current date:
+     * <ul>
+     *   <li>If the due date is in the past, there is a high chance of {@code DELIVERED}, with a small chance of {@code CANCELLED}.</li>
+     *   <li>If the due date is more than two days in the future, the state is {@code NEW}.</li>
+     *   <li>If the due date is 1–2 days ahead, the state is most often {@code NEW}, but could be {@code PROBLEM} or {@code CANCELLED}.</li>
+     *   <li>If the due date is today or tomorrow, the state can be {@code READY}, {@code DELIVERED}, {@code PROBLEM}, or {@code CANCELLED},
+     *       weighted by random probabilities.</li>
+     * </ul>
+     *
+     * @param due the due date of the order
+     * @return a randomly selected {@link OrderState} consistent with the due date and
+     *         internal probability distribution
+     */
+
 	@Autowired
 	public OrderService(OrderRepository orderRepository) {
 		super();
@@ -43,6 +60,23 @@ public class OrderService implements CrudService<Order> {
 	private static final Set<OrderState> notAvailableStates = Collections.unmodifiableSet(
 			EnumSet.complementOf(EnumSet.of(OrderState.DELIVERED, OrderState.READY, OrderState.CANCELLED)));
 
+
+    /**
+     * Determines a pseudo-random {@link OrderState} for an order based on its due date.
+     * <p>
+     * The returned state is influenced by how the provided due date compares to the current date:
+     * <ul>
+     *   <li>If the due date is in the past, there is a high chance of {@code DELIVERED}, with a small chance of {@code CANCELLED}.</li>
+     *   <li>If the due date is more than two days in the future, the state is {@code NEW}.</li>
+     *   <li>If the due date is 1–2 days ahead, the state is most often {@code NEW}, but could be {@code PROBLEM} or {@code CANCELLED}.</li>
+     *   <li>If the due date is today or tomorrow, the state can be {@code READY}, {@code DELIVERED}, {@code PROBLEM}, or {@code CANCELLED},
+     *       weighted by random probabilities.</li>
+     * </ul>
+     *
+     * @param due the due date of the order
+     * @return a randomly selected {@link OrderState} consistent with the due date and
+     *         internal probability distribution
+     */
 	@Transactional(rollbackOn = Exception.class)
 	public Order saveOrder(User currentUser, Long id, BiConsumer<User, Order> orderFiller) {
 		Order order;

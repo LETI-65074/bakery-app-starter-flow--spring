@@ -3,6 +3,23 @@ import { map } from 'lit/directives/map.js';
 import './order-status-badge.js';
 import { sharedStyles } from '../../../styles/shared-styles.js';
 
+
+/**
+ * Determines a pseudo-random {@link OrderState} for an order based on its due date.
+ * <p>
+ * The returned state is influenced by how the provided due date compares to the current date:
+ * <ul>
+ *   <li>If the due date is in the past, there is a high chance of {@code DELIVERED}, with a small chance of {@code CANCELLED}.</li>
+ *   <li>If the due date is more than two days in the future, the state is {@code NEW}.</li>
+ *   <li>If the due date is 1–2 days ahead, the state is most often {@code NEW}, but could be {@code PROBLEM} or {@code CANCELLED}.</li>
+ *   <li>If the due date is today or tomorrow, the state can be {@code READY}, {@code DELIVERED}, {@code PROBLEM}, or {@code CANCELLED},
+ *       weighted by random probabilities.</li>
+ * </ul>
+ *
+ * @param due the due date of the order
+ * @return a randomly selected {@link OrderState} consistent with the due date and
+ *         internal probability distribution
+ */
 class OrderCard extends LitElement {
   static get styles() {
     return [
