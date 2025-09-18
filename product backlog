@@ -1,0 +1,29 @@
+1. Highlight New Products
+As a customer, I want to see new products highlighted so that I can quickly identify the latest items. Label: Enhancement
+
+2. Show Prices with Two Decimal Places
+As a customer, I want prices to display with two decimal places so that they are easier to read. Label: Enhancement
+
+3. Change "Add to Cart" Button Color
+As a customer, I want the "Add to Cart" button to be colored so that I can locate it quickly. Label: Enhancement
+
+4. Add Cart Icon
+As a customer, I want to see a cart icon at the top of the page so that I can quickly know how many items I have. Label: Enhancement
+
+5. Show Success Message When Adding Product
+As a customer, I want to see a confirmation message when I add a product to the cart. Label: Enhancement
+
+6. Sort Products by Name
+As a customer, I want to sort products by name so that I can find items more easily. Label: Enhancement
+
+7. Increase Product Image Size
+As a customer, I want the product image to be larger so that I can see details more clearly. Label: Enhancement
+
+8. Highlight Products on Sale
+As a customer, I want sale products to be highlighted so that I can quickly notice discounts. Label: Enhancement
+
+9. Add Tooltip to Help Button
+As a user, I want to see tooltips when hovering over buttons so that I can understand their function. Label: Enhancement
+
+10. Update Page Title
+As a user, I want the page title to reflect the store name so that I can quickly identify the site. Label: Enhancement
