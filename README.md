@@ -7,8 +7,8 @@
 **Team Alpha**
 
 ## 🧑‍🤝‍🧑 Membros
-- 👩 Sofia 122653
-- 👨 Edu Sousa 122606
+- 👩 Sofia He 122653
+- 👨 Eduardo Sousa 122606
 - 👨 Sergiy Nytsulenko 65074
 
 
