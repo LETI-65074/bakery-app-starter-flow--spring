@@ -298,6 +298,34 @@ public class DataGenerator implements HasLogger {
 		return LocalTime.of(time, 0);
 	}
 
+/**
+ * Gera um estado aleatório para um pedido com base na data de vencimento informada.
+ *
+ * <p>As probabilidades variam conforme a diferença entre a data atual e a data de vencimento:
+ *
+ * <ul>
+ *   <li><b>Data de vencimento anterior a hoje:</b><br>
+ *       90% de chance de {@link OrderState#DELIVERED}, 10% de {@link OrderState#CANCELLED}.
+ *   </li>
+ *
+ *   <li><b>Vencimento em mais de 2 dias:</b><br>
+ *       Sempre retorna {@link OrderState#NEW}.
+ *   </li>
+ *
+ *   <li><b>Vencimento entre 1 e 2 dias a partir de hoje:</b><br>
+ *       80% {@link OrderState#NEW}, 10% {@link OrderState#PROBLEM}, 10% {@link OrderState#CANCELLED}.
+ *   </li>
+ *
+ *   <li><b>Vencimento para hoje ou amanhã:</b><br>
+ *       60% {@link OrderState#READY}, 20% {@link OrderState#DELIVERED},
+ *       10% {@link OrderState#PROBLEM}, 10% {@link OrderState#CANCELLED}.
+ *   </li>
+ * </ul>
+ *
+ * @param due data de vencimento do pedido
+ * @return um {@link OrderState} selecionado aleatoriamente de acordo com as regras acima
+ */
+	
 	/**
 	 * Returns a random order state depending on the due date.
 	 *
