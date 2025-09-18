@@ -3,6 +3,15 @@
 **This starter is not recommended for new Vaadin Flow applications. Instead, visit [start.vaadin.com](https://start.vaadin.com/) to configure and download a Vaadin project that reflects the current best practices.**
 
 
+## 🍀 NekoSES
+**Team Alpha**
+
+## 🧑‍🤝‍🧑 Membros
+- 👩 Sofia 122653
+- 👨 Edu Sousa 122606
+- 👨 Sergiy Nytsulenko 65074
+
+
 # Running the Project in Development Mode
 
 `mvn spring-boot:run` or just `mvn`
