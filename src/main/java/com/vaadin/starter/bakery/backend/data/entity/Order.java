@@ -47,7 +47,7 @@ import com.vaadin.starter.bakery.backend.data.OrderState;
                 @NamedAttributeNode("items"),
                 @NamedAttributeNode("history")
         })
-})
+})// ver se linha de comandos funicona git status
 @Table(indexes = @Index(columnList = "dueDate"))
 public class Order extends AbstractEntity implements OrderSummary {
 
