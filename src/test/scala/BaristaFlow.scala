@@ -16,7 +16,7 @@ class BaristaFlow extends Simulation {
 
   // The URL of the system under test
   val baseUrl: String = System.getProperty("gatling.baseUrl", "http://localhost:8080")
-
+  // adding this line just to test if worklow to notify about new pull request ios working 
   // The total number of simulated user sessions
   // NOTE: the number of concurrent sessions is lower because sessions start one by one
   // with a given interval and some may finish before the last session starts.
