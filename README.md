@@ -12,6 +12,7 @@
 - 👨 Sergiy Nytsulenko 65074
 
 
+
 # Running the Project in Development Mode
 
 `mvn spring-boot:run` or just `mvn`
