@@ -35,7 +35,7 @@ public class DeliveryStats {
     public void setDueTomorrow(int dueTomorrow) {
 		this.dueTomorrow = dueTomorrow;
 	}
-
+//Fjh
 	public int getNotAvailableToday() {
 		return notAvailableToday;
 	}
