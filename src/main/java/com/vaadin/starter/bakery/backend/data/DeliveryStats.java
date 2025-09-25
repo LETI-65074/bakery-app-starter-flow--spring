@@ -28,10 +28,14 @@ public class DeliveryStats {
 		return dueTomorrow;
 	}
 
-	public void setDueTomorrow(int dueTomorrow) {
+    public int getDueTodayNow() {
+        return dueTomorrow;
+    } //just for testing
+
+    public void setDueTomorrow(int dueTomorrow) {
 		this.dueTomorrow = dueTomorrow;
 	}
-
+//Fjh
 	public int getNotAvailableToday() {
 		return notAvailableToday;
 	}
@@ -47,5 +51,5 @@ public class DeliveryStats {
 	public void setNewOrders(int newOrders) {
 		this.newOrders = newOrders;
 	}
-
+//rghfg
 }
