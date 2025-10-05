@@ -3,13 +3,26 @@
 **This starter is not recommended for new Vaadin Flow applications. Instead, visit [start.vaadin.com](https://start.vaadin.com/) to configure and download a Vaadin project that reflects the current best practices.**
 
 
-## 
-**Team 🍀 NekoSES*
+# 🍀 NekoSES - Projeto ISCTE-ISTA
 
-## 🧑‍🤝‍🧑 Membros
-- 👩 Sofia He 122653
-- 👨 Eduardo Sousa 122606
-- 👨 Sergiy Nytsulenko 65074
+## 🧑‍🎓 Curso
+Licenciatura em Engenharia de Telecomunicações e Informática  
+**3.º Ano - ISCTE-IUL (ISTA)**  
+
+## 👥 Equipa
+- 👩 **Sofia He** — 122653  
+- 👨 **Eduardo Sousa** — 122606  
+- 👨 **Sergiy Nytsulenko** — 65074  
+
+## ⚙️ Tecnologias
+- Java  
+- Spring Boot  
+- Vaadin  
+- Maven  
+
+## 🧭 Descrição
+Este projeto é desenvolvido no âmbito da unidade curricular de Engenharia de Software, no ISCTE, e representa um sistema baseado em Java para aplicações web modernas.
+
 
 
 # Running the Project in Development Mode
