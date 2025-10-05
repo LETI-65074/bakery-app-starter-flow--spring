@@ -1,0 +1,15 @@
+name: PR Notification
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify reviewer
+        run: |
+          echo "Um novo Pull Request foi aberto por ${{ github.actor }}!"
+          echo "Título: ${{ github.event.pull_request.title }}"
+          echo "Revisor responsável: @colega"
